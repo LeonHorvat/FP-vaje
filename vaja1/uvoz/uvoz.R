@@ -16,4 +16,8 @@ euribor2013 <- read_csv('vaja1/podatki/hist_EURIBOR_2013.csv') %>%
 euribor2013 <- euribor2013[-1,]
 
 euribor <- rbind(euribor2011, euribor2012, euribor2013) %>%
-  subset(select=c(1,2,4,5,6,9,12,15))
+  subset(select=c(1,2,4,5,6,9,12,15)) %>%
+  as.data.frame()
+  
+euribor[] <- lapply(euribor, as.character) %>% lapply(as.numeric)
+  
