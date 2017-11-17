@@ -7,3 +7,5 @@ library(ggplot2)
 library(reshape2)
 library(shiny)
 library(tidyr)
+library(actuar)
+

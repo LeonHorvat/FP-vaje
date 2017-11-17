@@ -67,11 +67,44 @@ Fs <- aggregateDist(method = 'recursive',
               model.sev = diskretno,
               lambda = 15,
               x.scale = 0.1,
-              maxit = 1000000,
-              tol = 0.01)
-plot(Fs)
+              maxit = 10000000,
+              tol = 0.005)
+plot(Fs,
+     main = 'Porazdelitvena funkcija odškodnin',
+     xlab = 'Višina odškodnine')
 
+#d
+upanje2_S <- mean(Fs)
+varianca2_S <- sum(knots(Fs)^2 * diff(Fs)) - upanje2_S^2
 
+#e
+tvegana_vrednost <- VaR(Fs, 0.995)
+pričakovani_izpad <- CTE(Fs, 0.995) #Ker je 99.5 % tvegana vrednost enaka 23.5,
+#ki je zadnji skok kumulativne porazdelitve, je pričakovan izpad enak 0, funkcija vrne NaN
 
+#3
+#a
 
+simN <- rpois(10000, 15)
+simS <- c(0)
+for (i in 1:10000){
+  simS[i] <- sum(rweibull(simN[i], k, lambda))
+}
+
+#b
+upanje3_S <- mean(simS)
+varianca3_S <- var(simS)
+
+#c
+tvegana_vrednost2 <- sort(simS)[9950]
+
+#d
+plot(ecdf(simS),
+     col = 'green',
+     add = TRUE,
+     lwd = 2)
+legend('bottomright', 
+       legend = c('Panjerjev algoritem', 'Monte Carlo simulacija'),
+       col = c('black', 'green'),
+       lty=1:1, cex=0.8)
 
