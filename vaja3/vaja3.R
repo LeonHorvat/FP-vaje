@@ -7,7 +7,8 @@ R <- 0.03
 
 #1
 #a
-
+izplačiloX <- c(0, 8.69, 0, 2.24, 5.24)
+izplačiloy <- c(0, 7.88, 0, 0, 0)
 
 #b
 izplacilo <- function(vrsta, T, type){
