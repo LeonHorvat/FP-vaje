@@ -98,6 +98,7 @@ legend('topright',
        lwd = 1:1,
        bty = 'n')
 arrows(mean(oceneN1), 0, mean(oceneN1) + odklon1, 0, add = TRUE)
+arrows(mean(oceneN1), 0, mean(oceneN1) - odklon1, 0, add = TRUE)
 
 histogram2 <- hist(oceneN2, 
                    main = 'Monte Carlo, N = 100',
@@ -111,6 +112,8 @@ legend('topright',
        col = c('purple', 'green'),
        lwd = 1:1,
        bty = 'n')
+arrows(mean(oceneN2), 0, mean(oceneN2) + odklon2, 0, add = TRUE)
+arrows(mean(oceneN2), 0, mean(oceneN2) - odklon2, 0, add = TRUE)
 
 histogram3 <- hist(oceneN3, 
                    main = 'Monte Carlo, N = 1000',
@@ -124,6 +127,6 @@ legend('topright',
        col = c('purple', 'green'),
        lwd = 1:1,
        bty = 'n')
-
-
+arrows(mean(oceneN3), 0, mean(oceneN3) + odklon3, 0, add = TRUE)
+arrows(mean(oceneN3), 0, mean(oceneN3) - odklon3, 0, add = TRUE)
 

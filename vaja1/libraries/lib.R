@@ -8,4 +8,4 @@ library(reshape2)
 library(shiny)
 library(tidyr)
 library(actuar)
-
+library(combinat)
